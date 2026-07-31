@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Mahasiddha Web Solutions</title>
+
+    <!-- Elegant Font Combination: Playfair Display (Serif) + Plus Jakarta Sans (Sans-serif) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-gold: #d4af37;
+            --primary-gold-hover: #c5a028;
+            --bg-dark: #0a0f1d;
+            --bg-card: #0f1424;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+            --border-elegant: rgba(212, 175, 55, 0.08);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+        }
+
+        h1, h2, h3, .logo h2 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* =========================
+        NAVBAR
+        ========================= */
+        nav {
+            width: 100%;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-elegant);
+            transition: 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 1001;
+        }
+
+        .logo img {
+            width: 48px;
+            filter: grayscale(1) brightness(1.3);
+        }
+
+        .logo h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--primary-gold);
+            font-weight: 400;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            text-transform: none;
+            margin-left: 4px;
+        }
+
+        #nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        #nav-menu li a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        #nav-menu li a:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-btn {
+            padding: 11px 24px;
+            background: transparent;
+            border: 1px solid var(--primary-gold);
+            border-radius: 4px;
+            color: var(--primary-gold);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-btn:hover {
+            background: var(--gold-gradient);
+            color: #000;
+            border-color: transparent;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--text-light);
+            transition: 0.4s;
+        }
+
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* =========================
+        HERO
+        ========================= */
+        .pricing-hero {
+            padding: 200px 8% 110px;
+            text-align: center;
+            background: 
+                linear-gradient(135deg, rgba(10, 15, 29, 0.96) 40%, rgba(10, 15, 29, 0.88) 100%),
+                url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pricing-hero h1 {
+            font-size: 4.2rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .pricing-hero h1 span {
+            color: var(--primary-gold);
+            font-style: italic;
+        }
+
+        .pricing-hero p {
+            max-width: 700px;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* =========================
+        PRICING SECTION
+        ========================= */
+        .pricing-section {
+            padding: 120px 8%;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-elegant);
+            border-bottom: 1px solid var(--border-elegant);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .section-title p {
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.8;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background: var(--bg-dark);
+            padding: 50px 35px;
+            border-radius: 8px;
+            position: relative;
+            transition: 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--gold-gradient);
+            opacity: 0.3;
+            transition: 0.4s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+        }
+
+        .pricing-card:hover::before {
+            opacity: 1;
+        }
+
+        .popular {
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            background: rgba(15, 20, 36, 0.8);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .popular::before {
+            opacity: 1;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold-gradient);
+            color: #0a0f1d;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .plan-icon {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            filter: sepia(0.8) saturate(1.5);
+        }
+
+        .plan-name {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .plan-description {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            font-weight: 300;
+            min-height: 45px;
+        }
+
+        .price {
+            font-size: 3.2rem;
+            font-weight: 400;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-gold);
+            margin-bottom: 35px;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-muted);
+            margin-left: 5px;
+            font-weight: 300;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+
+        .features li {
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            color: rgba(248, 250, 252, 0.85);
+            font-size: 0.95rem;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .features li i {
+            color: var(--primary-gold);
+            font-size: 0.85rem;
+        }
+
+        .plan-btn {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            background: transparent;
+            color: var(--text-light);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.4s ease;
+        }
+
+        .pricing-card:hover .plan-btn, .popular .plan-btn {
+            background: var(--gold-gradient);
+            color: #0a0f1d;
+            border-color: transparent;
+            font-weight: 700;
+        }
+
+        /* =========================
+        HOSTING TABLES
+        ========================= */
+        .hosting {
+            padding: 120px 8%;
+            background: var(--bg-dark);
+        }
+
+        .hosting-table {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 60px;
+            border-radius: 8px;
+            border: 1px solid var(--border-elegant);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            min-width: 800px;
+        }
+
+        th {
+            background: rgba(15, 20, 36, 0.9);
+            padding: 22px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-elegant);
+            color: var(--primary-gold);
+        }
+
+        td {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.01);
+            color: var(--text-light);
+        }
+
+        /* =========================
+        INCLUDED IN ALL
+        ========================= */
+        .included {
+            padding: 120px 8%;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-elegant);
+        }
+
+        .include-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .include-card {
+            background: var(--bg-dark);
+            padding: 45px 35px;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.01);
+        }
+
+        .include-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-elegant);
+        }
+
+        .include-icon {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .include-card h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        .include-card p {
+            color: var(--text-muted);
+            line-height: 1.75;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* =========================
+        CTA
+        ========================= */
+        .cta {
+            padding: 140px 8%;
+            text-align: center;
+            background: 
+                linear-gradient(rgba(10, 15, 29, 0.95), rgba(10, 15, 29, 0.95)),
+                url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            border-top: 1px solid var(--border-elegant);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta h2 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .cta p {
+            max-width: 650px;
+            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 45px;
+            font-weight: 300;
+        }
+
+        .cta button {
+            padding: 16px 36px;
+            background: var(--gold-gradient);
+            color: #0a0f1d;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.4s ease;
+        }
+
+        .cta button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.35);
+        }
+
+        /* =========================
+        FOOTER
+        ========================= */
+        footer {
+            padding: 80px 8% 40px;
+            background: #050811;
+            border-top: 1px solid var(--border-elegant);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 50px;
+        }
+
+        .footer-box h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .footer-box p,
+        .footer-box a {
+            color: var(--text-muted);
+            text-decoration: none;
+            line-height: 2.2;
+            font-size: 0.95rem;
+            font-weight: 300;
+            transition: 0.3s;
+        }
+
+        .footer-box a:hover {
+            color: var(--primary-gold);
+        }
+
+        .bottom {
+            margin-top: 70px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding-top: 30px;
+            text-align: center;
+            color: #475569;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* SOCIAL LINKS */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+
+        .social-links a {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            color: var(--text-light);
+            font-size: 1rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--gold-gradient);
+            color: #000;
+            border-color: transparent;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 58px;
+            height: 58px;
+            background: #25d366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.6rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            z-index: 1000;
+            transition: 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-3px);
+        }
+
+        /* =========================
+        RESPONSIVE
+        ========================= */
+        @media(max-width:1000px){
+            .pricing-hero h1{ font-size:3rem; }
+            .hamburger{ display:flex; }
+            #nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: #080c16;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                box-shadow: -15px 0 35px rgba(0,0,0,0.6);
+                border-left: 1px solid var(--border-elegant);
+            }
+            #nav-menu.active{ right:0; }
+        }
+
+        @media(max-width:650px){
+            .pricing-hero h1{ font-size:2.4rem; }
+            .section-title h2{ font-size:2.2rem; }
+            .cta h2{ font-size:2.2rem; }
+            .price{ font-size:2.8rem; }
+            nav{ padding:18px 6%; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+    NAVBAR
+    ========================= -->
+    <nav>
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" alt="Logo">
+            <h2>MAHASIDDHA <span>web solutions</span></h2>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <a href="contact.html" style="padding: 0;">
+                    <button class="nav-btn">Get Started</button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="pricing-hero">
+        <h1>Transparent <span>Architectural Pricing</span></h1>
+        <p>Select an elite package customized precisely to showcase your venture. Every structure arrives baseline-optimized for luxury presentation, absolute security, and fluid conversion mechanics.</p>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing-section">
+        <div class="section-title">
+            <h2>Bespoke Development Tiers</h2>
+            <p>Engineered digital investments designed to bring ultimate positioning, technical velocity, and scalability to your business brand.</p>
+        </div>
+
+        <div class="pricing-grid">
+
+            <!-- CARD 1: PORTFOLIO -->
+            <div class="pricing-card">
+                <div class="plan-icon">✨</div>
+                <h3 class="plan-name">Portfolio Framework</h3>
+                <p class="plan-description">Tailored premium layout built explicitly for artists, independent executives, and visual creators.</p>
+                <div class="price">₹5,000</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Bespoke Modern Design</li>
+                    <li><i class="fas fa-check"></i> Dynamic Work Galleries</li>
+                    <li><i class="fas fa-check"></i> Fluid Mobile Adaptation</li>
+                    <li><i class="fas fa-check"></i> Social & Contact Layer</li>
+                    <li><i class="fas fa-check"></i> Free High-Speed Hosting</li>
+                </ul>
+                <button class="plan-btn">Initiate Plan</button>
+            </div>
+
+            <!-- CARD 2: SMALL BUSINESS -->
+            <div class="pricing-card popular">
+                <div class="popular-badge">Highly Requested</div>
+                <div class="plan-icon">💼</div>
+                <h3 class="plan-name">Small Business Suite</h3>
+                <p class="plan-description">Complete operational digital presence for neighborhood firms, boutique shops, and local clinics.</p>
+                <div class="price">₹8,000</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Comprehensive 5-Page Architecture</li>
+                    <li><i class="fas fa-check"></i> Local Map & SEO Mapping</li>
+                    <li><i class="fas fa-check"></i> Live WhatsApp Core Integration</li>
+                    <li><i class="fas fa-check"></i> Interactive Inquiry Elements</li>
+                    <li><i class="fas fa-check"></i> 3 Months Maintenance Advisory</li>
+                </ul>
+                <button class="plan-btn">Initiate Plan</button>
+            </div>
+
+            <!-- CARD 3: EDUCATIONAL BLOG/WEBSITE -->
+            <div class="pricing-card">
+                <div class="plan-icon">🎓</div>
+                <h3 class="plan-name">Educational Ecosystem</h3>
+                <p class="plan-description">Engineered for training centers, independent academies, publishing houses, and long-form journals.</p>
+                <div class="price">₹10,000</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Advanced Publishing Framework</li>
+                    <li><i class="fas fa-check"></i> Structured Course Categorization</li>
+                    <li><i class="fas fa-check"></i> Dynamic Search & Filter Stack</li>
+                    <li><i class="fas fa-check"></i> Lead Capture Optimization</li>
+                    <li><i class="fas fa-check"></i> Extended Cloud Architecture</li>
+                </ul>
+                <button class="plan-btn">Initiate Plan</button>
+            </div>
+
+            <!-- CARD 4: SMEs WEBSITE -->
+            <div class="pricing-card">
+                <div class="plan-icon">🏢</div>
+                <h3 class="plan-name">SME Commercial Matrix</h3>
+                <p class="plan-description">Deep enterprise-grade framework for medium scale corporate operations seeking high domain authority.</p>
+                <div class="price">₹15,000</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Multi-tier Service Topography</li>
+                    <li><i class="fas fa-check"></i> High-Speed Corporate Hosting</li>
+                    <li><i class="fas fa-check"></i> Deep Core On-Page SEO Engine</li>
+                    <li><i class="fas fa-check"></i> CRM Integration Compatibility</li>
+                    <li><i class="fas fa-check"></i> 6 Months Execution Guarantee</li>
+                </ul>
+                <button class="plan-btn">Initiate Plan</button>
+            </div>
+
+            <!-- CARD 5: LUXURY HOTELS/RESORTS -->
+            <div class="pricing-card">
+                <div class="plan-icon">🛎</div>
+                <h3 class="plan-name">Luxury Hospitality</h3>
+                <p class="plan-description">Ultra-premium aesthetic interface engineered specifically for luxury hotels, exclusive retreats, and estates.</p>
+                <div class="price">₹20,000</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> High-End Editorial Presentation</li>
+                    <li><i class="fas fa-check"></i> Native Booking System Sync</li>
+                    <li><i class="fas fa-check"></i> Cinematic Amenities Galleries</li>
+                    <li><i class="fas fa-check"></i> Multi-language Infrastructure Ready</li>
+                    <li><i class="fas fa-check"></i> Advanced Location Mapping Stack</li>
+                </ul>
+                <button class="plan-btn">Initiate Plan</button>
+            </div>
+
+            <!-- CARD 6: PREMIUM WEBSITE -->
+            <div class="pricing-card">
+                <div class="plan-icon">👑</div>
+                <h3 class="plan-name">Premium Enterprise</h3>
+                <p class="plan-description">Absolute custom architecture for top tier brands requiring heavy integration and elite scale.</p>
+                <div class="price">₹25,000</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Unlimited Fluid Configurations</li>
+                    <li><i class="fas fa-check"></i> Custom Secure Payment Gateways</li>
+                    <li><i class="fas fa-check"></i> Automated Scheduling Matrix</li>
+                    <li><i class="fas fa-check"></i> Full Dedicated Server Engineering</li>
+                    <li><i class="fas fa-check"></i> 1 Year Private VIP Assistance</li>
+                </ul>
+                <button class="plan-btn">Initiate Plan</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HOSTING -->
+    <section class="hosting">
+        <div class="section-title">
+            <h2>Cloud Infrastructure Provisioning</h2>
+            <p>Fast, ultra-secure, and private web containment designed explicitly for high performance operational uptimes.</p>
+        </div>
+
+        <div class="hosting-table">
+            <table>
+                <tr>
+                    <th>Features</th>
+                    <th>Basic Core</th>
+                    <th>Pro Cluster</th>
+                    <th>Ultra Dedicated</th>
+                </tr>
+                <tr>
+                    <td>Price Allocation</td>
+                    <td>₹999 / yr</td>
+                    <td>₹2,499 / yr</td>
+                    <td>₹4,999 / yr</td>
+                </tr>
+                <tr>
+                    <td>SSD Storage Matrix</td>
+                    <td>5 GB NVMe</td>
+                    <td>20 GB NVMe</td>
+                    <td>Unlimited Enterprise</td>
+                </tr>
+                <tr>
+                    <td>Site Allocations</td>
+                    <td>1 App Base</td>
+                    <td>10 Connected Apps</td>
+                    <td>Absolute Unlimited</td>
+                </tr>
+                <tr>
+                    <td>SSL Security Protocol</td>
+                    <td>Included Baseline</td>
+                    <td>Included Baseline</td>
+                    <td>Included Baseline</td>
+                </tr>
+                <tr>
+                    <td>Technical Advisory</td>
+                    <td>Standard</td>
+                    <td>Priority Routine</td>
+                    <td>Direct Executive Route</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- INCLUDED -->
+    <section class="included">
+        <div class="section-title">
+            <h2>Baseline Architecture Core</h2>
+            <p>Every single blueprint deployment carries our non-negotiable premium structural standards.</p>
+        </div>
+
+        <div class="include-grid">
+            <div class="include-card">
+                <div class="include-icon">🔒</div>
+                <h3>End-to-End Cryptography</h3>
+                <p>Enforced enterprise-grade SSL protection parameters guaranteeing consumer compliance.</p>
+            </div>
+            <div class="include-card">
+                <div class="include-icon">📱</div>
+                <h3>Responsive Fluidity</h3>
+                <p>Absolute scaling precision engineered directly for workstations down to phone displays.</p>
+            </div>
+            <div class="include-card">
+                <div class="include-icon">⚡</div>
+                <h3>Sub-Second Speeds</h3>
+                <p>Lightweight rendering structures mapped cleanly for top performance scoring.</p>
+            </div>
+            <div class="include-card">
+                <div class="include-icon">🛠</div>
+                <h3>Continuous Protection</h3>
+                <p>Reliable maintenance pipelines standing by to ensure zero systemic friction.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Let’s Forge Your Digital Infrastructure</h2>
+        <p>Ready to deploy a high-performing digital suite tailored completely to your precise operational target?</p>
+        <button onclick="window.location.href='contact.html'">Initiate Workspace Brief</button>
+
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/917073528007" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-box">
+                <h3>Mahasiddha Web Solutions</h3>
+                <p>Architecting exceptional, high-speed digital products for modern enterprises.</p>
+            </div>
+            <div class="footer-box">
+                <h3>Sitemap</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="services.html">Services</a></p>
+                <p><a href="pricing.html">Pricing</a></p>
+                <p><a href="portfolio.html">Portfolio</a></p>
+            </div>
+            <div class="footer-box">
+                <h3>Inquiries</h3>
+                <p>📞 +91 7073528007</p>
+                <p>📧 mahasiddha@gmail.com</p>
+                <p>📍 Sakhipara, Sambalpur, Odisha</p>
+            </div>
+        </div>
+        <div class="bottom">
+            © 2026 Mahasiddha Web Solutions. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll("#nav-menu a").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            });
+        });
+    </script>
+    <a href="https://wa.me/917073528007" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
