@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahasiddha Web Solutions | Premium Web Design</title>
+    
+    <!-- Elegant Font Combination: Playfair Display (Serif) + Plus Jakarta Sans (Sans-serif) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-gold: #d4af37;
+            --primary-gold-hover: #c5a028;
+            --bg-dark: #0a0f1d;
+            --bg-card: #0f1424;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --gold-gradient: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+            --border-elegant: rgba(212, 175, 55, 0.08);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+        }
+
+        h1, h2, h3, .logo h2 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* =========================
+        NAVBAR
+        ========================= */
+        nav {
+            width: 100%;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(10, 15, 29, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-elegant);
+            transition: 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 1001;
+        }
+
+        .logo img {
+            width: 48px;
+            filter: grayscale(1) brightness(1.3);
+        }
+
+        .logo h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--primary-gold);
+            font-weight: 400;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            text-transform: none;
+            margin-left: 4px;
+        }
+
+        #nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            list-style: none;
+        }
+
+        #nav-menu li a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        #nav-menu li a:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-btn {
+            padding: 11px 24px;
+            background: transparent;
+            border: 1px solid var(--primary-gold);
+            border-radius: 4px;
+            color: var(--primary-gold);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-btn:hover {
+            background: var(--gold-gradient);
+            color: #000;
+            border-color: transparent;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--text-light);
+            transition: 0.4s;
+        }
+
+        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* =========================
+        CLEAN VISUAL HERO SECTION
+        ========================= */
+        .hero {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            background-image: url('images/hero-image.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: var(--bg-dark);
+        }
+
+        /* Invisible interactive container mapped precisely over the design's built-in button */
+        .hero-interactive-link {
+            position: absolute;
+            left: 6%;
+            bottom: 30%;
+            width: 155px;
+            height: 48px;
+            cursor: pointer;
+            text-decoration: none;
+            background: transparent;
+            z-index: 5;
+        }
+
+        /* =========================
+        SERVICES
+        ========================= */
+        .services {
+            padding: 120px 8%;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-elegant);
+            border-bottom: 1px solid var(--border-elegant);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title h2 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: auto;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--bg-dark);
+            padding: 45px 35px;
+            border-radius: 8px;
+            transition: 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--gold-gradient);
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            filter: sepia(0.8) saturate(1.5) hue-rotate(5deg);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.75;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        /* =========================
+        STATS
+        ========================= */
+        .stats {
+            padding: 100px 8%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            background: var(--bg-dark);
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 50px 30px;
+            background: rgba(15, 20, 36, 0.3);
+            border: 1px solid var(--border-elegant);
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .stat-box h2 {
+            font-size: 3.2rem;
+            color: var(--primary-gold);
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .stat-box p {
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+   PORTFOLIO SECTION STYLES (Paste inside your <style> tags)
+   ========================================================================== */
+.portfolio {
+    padding: 120px 8%;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-elegant);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.portfolio-card {
+    background: var(--bg-dark);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.4s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+}
+
+/* Browser Window Frame */
+.browser-mockup {
+    background: #161b2c;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+}
+
+.browser-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    display: inline-block;
+}
+
+.browser-dot:nth-child(1) { background: #ff5f56; }
+.browser-dot:nth-child(2) { background: #ffbd2e; }
+.browser-dot:nth-child(3) { background: #27c93f; }
+
+.browser-address {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding: 4px 15px;
+    margin-left: 15px;
+    flex-grow: 0.8;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+}
+
+/* Internal Mockup Content Window */
+.web-canvas {
+    height: 240px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.canvas-culinary {
+    background: linear-gradient(135deg, #1a1311 0%, #2d1a12 100%);
+    border-bottom: 2px solid #ff7a00;
+}
+.canvas-athletics {
+    background: linear-gradient(135deg, #0b1528 0%, #040814 100%);
+    border-bottom: 2px solid #00ffcc;
+}
+.canvas-academy {
+    background: linear-gradient(135deg, #0f1c3f 0%, #070d1f 100%);
+    border-bottom: 2px solid #d4af37;
+}
+
+.canvas-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 10px;
+}
+
+.canvas-logo {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.canvas-links {
+    display: flex;
+    gap: 12px;
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.canvas-hero {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.canvas-hero h4 {
+    font-size: 1.4rem;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 6px;
+    font-family: 'Playfair Display', serif;
+}
+
+.canvas-athletics .canvas-hero h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.canvas-hero p {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.4;
+}
+
+.canvas-btn {
+    align-self: flex-start;
+    padding: 8px 16px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.canvas-culinary .canvas-btn { background: #ff7a00; color: #fff; }
+.canvas-athletics .canvas-btn { background: #00ffcc; color: #000; }
+.canvas-academy .canvas-btn { background: transparent; border: 1px solid #d4af37; color: #d4af37; }
+
+.portfolio-content {
+    padding: 25px;
+    background: var(--bg-dark);
+}
+
+.portfolio-content h3 {
+    font-size: 1.35rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.portfolio-content p {
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+        /* =========================
+        TESTIMONIALS
+        ========================= */
+        .testimonials {
+            padding: 120px 8%;
+            background: var(--bg-dark);
+            border-top: 1px solid var(--border-elegant);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            padding: 45px 35px;
+            border-radius: 8px;
+            border: 1px solid var(--border-elegant);
+            transition: 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .stars {
+            font-size: 1rem;
+            color: var(--primary-gold);
+            margin-bottom: 25px;
+            letter-spacing: 3px;
+        }
+
+        .testimonial-card p {
+            color: var(--text-muted);
+            line-height: 1.9;
+            font-size: 1.05rem;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 35px;
+        }
+
+        .client {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .client img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--primary-gold);
+        }
+
+        .client h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .client span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* =========================
+        CTA
+        ========================= */
+        .cta {
+            padding: 140px 8%;
+            text-align: center;
+            background: 
+                linear-gradient(rgba(10, 15, 29, 0.95), rgba(10, 15, 29, 0.95)),
+                url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            border-top: 1px solid var(--border-elegant);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta h2 {
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            max-width: 800px;
+        }
+
+        .cta p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            line-height: 1.8;
+            margin-bottom: 45px;
+            font-weight: 300;
+        }
+
+        /* =========================
+        SOCIAL LINKS
+        ========================= */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 45px;
+            justify-content: center;
+        }
+
+        .social-links a {
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--gold-gradient);
+            color: #000;
+            border-color: transparent;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 58px;
+            height: 58px;
+            background: #25d366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.6rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            z-index: 1000;
+            transition: 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-3px);
+        }
+
+        /* =========================
+        SHOWCASE (SWIPER)
+        ========================= */
+        .showcase {
+            padding: 120px 8%;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-elegant);
+        }
+
+        .showcase-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .showcase-content {
+            padding: 30px;
+        }
+
+        .showcase-content h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .showcase-content p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .swiper {
+            padding-bottom: 60px;
+        }
+
+        .swiper-pagination-bullet {
+            background: var(--primary-gold) !important;
+        }
+
+        /* =========================
+        FOOTER
+        ========================= */
+        footer {
+            padding: 80px 8% 40px;
+            background: #050811;
+            border-top: 1px solid var(--border-elegant);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 50px;
+        }
+
+        .footer-box h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .footer-box p,
+        .footer-box a {
+            color: var(--text-muted);
+            text-decoration: none;
+            line-height: 2.2;
+            font-size: 0.95rem;
+            font-weight: 300;
+            transition: 0.3s;
+        }
+
+        .footer-box a:hover {
+            color: var(--primary-gold);
+        }
+
+        .bottom {
+            margin-top: 70px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding-top: 30px;
+            text-align: center;
+            color: #475569;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+        RESPONSIVE
+        ========================= */
+        @media(max-width: 1000px) {
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            #nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: #080c16;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                box-shadow: -15px 0 35px rgba(0,0,0,0.6);
+                border-left: 1px solid var(--border-elegant);
+            }
+
+            #nav-menu.active {
+                right: 0;
+            }
+            
+            .hero-interactive-link {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 15%;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+
+            .cta h2 {
+                font-size: 2.3rem;
+            }
+
+            nav {
+                padding: 18px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+    NAVBAR
+    ========================= -->
+    <nav>
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" alt="Logo">
+            <h2>MAHASIDDHA <span>web solutions</span></h2>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <a href="contact.html" style="padding: 0;">
+                    <button class="nav-btn">Get Started</button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- =========================
+    CLEAN GRAPHIC HERO SECTION
+    ========================= -->
+    <section class="hero">
+        <!-- Invisible layer hitting exactly where 'EXPLORE OUR WORK' sits on your artwork -->
+        <a href="portfolio.html" class="hero-interactive-link" title="Explore Our Work"></a>
+    </section>
+
+    <!-- =========================
+    SERVICES
+    ========================= -->
+    <section class="services">
+        <div class="section-title">
+            <h2>Bespoke Services</h2>
+            <p>Expertly tailored web experiences engineered specifically to drive conversion, scale performance, and reflect your brand identity.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Business Suites</h3>
+                <p>Sophisticated multi-page structures built to convert local audience and institutional entities alike.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <h3>Landing Experiences</h3>
+                <p>High-converting layout frameworks strictly optimized for maximum conversion of marketing campaigns.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Performance SEO</h3>
+                <p>Strategic, clean-code optimizations designed to vault your architecture straight to Google's peak ranks.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Fluid Responsiveness</h3>
+                <p>Flawless adaptations meticulously fine-tuned across the entire spectrum of mobile and workstation devices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+    STATS
+    ========================= -->
+    <section class="stats">
+        <div class="stat-box">
+            <h2>20+</h2>
+            <p>Fine Projects</p>
+        </div>
+        <div class="stat-box">
+            <h2>100%</h2>
+            <p>Pixel Perfection</p>
+        </div>
+        <div class="stat-box">
+            <h2>24/7</h2>
+            <p>Dedicated Advisory</p>
+        </div>
+        <div class="stat-box">
+            <h2>Fast</h2>
+            <p>Engineered Velocity</p>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       PORTFOLIO SECTION MARKUP (Paste into your <body> where the portfolio goes)
+       ========================================================================== */ -->
+    <section class="portfolio">
+        <div class="section-title">
+            <h2>Selected Works</h2>
+            <p>A gallery showcase displaying modern digital environments curated for scaling commercial models.</p>
+        </div>
+
+        <div class="portfolio-grid">
+            <!-- Website 1: Culinary -->
+            <div class="portfolio-card">
+                <div class="browser-mockup">
+                    <span class="browser-dot"></span>
+                    <span class="browser-dot"></span>
+                    <span class="browser-dot"></span>
+                    <div class="browser-address">spiceheaven.com</div>
+                </div>
+                <div class="web-canvas canvas-culinary">
+                    <div class="canvas-nav">
+                        <div class="canvas-logo" style="color: #ff7a00;">SPICE HEAVEN</div>
+                        <div class="canvas-links"><span>Menu</span><span>Reservations</span></div>
+                    </div>
+                    <div class="canvas-hero">
+                        <h4>A Delicious Website</h4>
+                        <p>Immersive, high-end culinary experience with active booking flows.</p>
+                    </div>
+                    <button class="canvas-btn">Book Table</button>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Gastronomy Concepts</h3>
+                    <p>Sophisticated fine-dining structures with reservation integrations and editorial visual displays.</p>
+                </div>
+            </div>
+
+            <!-- Website 2: Fitness -->
+            <div class="portfolio-card">
+                <div class="browser-mockup">
+                    <span class="browser-dot"></span>
+                    <span class="browser-dot"></span>
+                    <span class="browser-dot"></span>
+                    <div class="browser-address">powergym.io</div>
+                </div>
+                <div class="web-canvas canvas-athletics">
+                    <div class="canvas-nav">
+                        <div class="canvas-logo" style="color: #00ffcc;">POWER GYM</div>
+                        <div class="canvas-links"><span>Trainers</span><span>Memberships</span></div>
+                    </div>
+                    <div class="canvas-hero">
+                        <h4 style="color: #00ffcc;">POWER YOUR BODY.</h4>
+                        <p>High-end wellness platform optimized for seamless user onboarding.</p>
+                    </div>
+                    <button class="canvas-btn">Join Now</button>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Athletic Academies</h3>
+                    <p>High-end wellness dynamic platforms equipped with subscription flow frameworks.</p>
+                </div>
+            </div>
+
+            <!-- Website 3: Education -->
+            <div class="portfolio-card">
+                <div class="browser-mockup">
+                    <span class="browser-dot"></span>
+                    <span class="browser-dot"></span>
+                    <span class="browser-dot"></span>
+                    <div class="browser-address">academypoint.edu</div>
+                </div>
+                <div class="web-canvas canvas-academy">
+                    <div class="canvas-nav">
+                        <div class="canvas-logo" style="color: #d4af37;">ACADEMY POINT</div>
+                        <div class="canvas-links"><span>Courses</span><span>Admissions</span></div>
+                    </div>
+                    <div class="canvas-hero">
+                        <h4>Shape Your Future</h4>
+                        <p>Prestigious educational portal tailored for academic clarity and visual prestige.</p>
+                    </div>
+                    <button class="canvas-btn">Explore Plans</button>
+                </div>
+                <div class="portfolio-content">
+                    <h3>Academic Ecosystems</h3>
+                    <p>Prestigious educational environments built for smooth class scheduling and visual prestige.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =========================
+    TESTIMONIALS
+    ========================= -->
+    <section class="testimonials">
+        <div class="section-title">
+            <h2>Client Appraisals</h2>
+            <p>Trusted by brands globally for our uncompromising commitment to aesthetic prestige and technical excellence.</p>
+        </div>
+
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>“Mahasiddha Web Solutions delivered an architectural design that feels premium, elegant, and highly professional. Uncompromisingly precise.”</p>
+                <div class="client">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                    <div>
+                        <h4>Rahul Sharma</h4>
+                        <span>Founder, The Gastronome</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>“An incredibly detailed agency. Our digital aesthetic represents our brand identity flawlessly across all dynamic screen environments.”</p>
+                <div class="client">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client">
+                    <div>
+                        <h4>Priya Patel</h4>
+                        <span>Performance Director</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>“Unparalleled response times, flawless aesthetics, and clear, fast delivery. They elevated our commercial framework immediately.”</p>
+                <div class="client">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client">
+                    <div>
+                        <h4>Aman Verma</h4>
+                        <span>Managing Director, Academy Group</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================
+    CTA
+    ========================= -->
+    <section class="cta">
+        <h2>Let’s Forge Your Digital Legacy</h2>
+        <p>Partner with us to create luxurious, highly-optimized web applications designed to engage your high-tier clientele.</p>
+        <a href="contact.html" class="primary-btn">Initiate Brief</a>
+
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/917073528007" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </section>
+
+    <!-- =========================
+    WEBSITE SHOWCASE (SWIPER)
+    ========================= -->
+    <section class="showcase">
+        <div class="section-title">
+            <h2>Interactive Concepts We Deploy</h2>
+            <p>Explore elite configurations curated and adaptable across refined consumer spaces.</p>
+        </div>
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="showcase-card">
+                        <img src="restaurant.png" alt="Culinary">
+                        <div class="showcase-content">
+                            <h3>Bespoke Gastronomy</h3>
+                            <p>Visual narrative structures paired with advanced booking integrations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="showcase-card">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="Gym">
+                        <div class="showcase-content">
+                            <h3>Boutique Athletics</h3>
+                            <p>Seamless subscription setups mapped onto premium dark interfaces.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="showcase-card">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Education">
+                        <div class="showcase-content">
+                            <h3>Elite Academies</h3>
+                            <p>Professional curriculum portals designed to optimize student acquisition.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="showcase-card">
+                        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop" alt="E-commerce">
+                        <div class="showcase-content">
+                            <h3>Luxury E-Commerce</h3>
+                            <p>Immersive digital retail galleries backed by high-speed checkout interfaces.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- =========================
+    FOOTER
+    ========================= -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-box">
+                <h3>Mahasiddha Web Solutions</h3>
+                <p>Architecting exceptional, high-speed digital products for modern enterprises.</p>
+            </div>
+            <div class="footer-box">
+                <h3>Sitemap</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="services.html">Services</a></p>
+                <p><a href="pricing.html">Pricing</a></p>
+                <p><a href="portfolio.html">Portfolio</a></p>
+            </div>
+            <div class="footer-box">
+                <h3>Inquiries</h3>
+                <p>📞 +91 7073528007</p>
+                <p>📧 mahasiddha@gmail.com</p>
+                <p>📍 Sakhipara, Sambalpur, Odisha</p>
+            </div>
+        </div>
+        <div class="bottom">
+            © 2026 Mahasiddha Web Solutions. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- =========================
+    JAVASCRIPT
+    ========================= -->
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll("#nav-menu a").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            });
+        });
+    </script>
+
+    <a href="https://wa.me/917073528007" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1100: { slidesPerView: 3 }
+            }
+        });
+    </script>
+</body>
+
+</html>
