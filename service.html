@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bespoke Services | Mahasiddha Web Solutions</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..900;1,300..900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-blue: #0A1E3F;
+            --primary-blue-dark: #061126;
+            --primary-gold: #D4A359;
+            --primary-gold-light: #E6C280;
+            --bg-dark: #060913;
+            --bg-card: #0D1629;
+            --text-light: #ffffff;
+            --text-muted: #A0ABC0;
+            --gold-gradient: linear-gradient(135deg, #D4A359 0%, #B88330 100%);
+            --banner-gradient: linear-gradient(110deg, #071936 0%, #040c1b 60%, #b88a3e 100%);
+            --border-elegant: rgba(212, 163, 89, 0.15);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+        }
+
+        h1, h2, h3, .logo h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+
+        /* NAVBAR */
+        nav {
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(6, 9, 19, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 2px solid var(--primary-gold);
+            transition: 0.3s ease;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 1001;
+        }
+
+        .logo img {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+        }
+
+        .logo h2 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .logo span {
+            color: var(--primary-gold);
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            margin-left: 4px;
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+        }
+
+        #nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            list-style: none;
+        }
+
+        #nav-menu li a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        #nav-menu li a:hover, #nav-menu li a.active {
+            color: var(--primary-gold);
+        }
+
+        .nav-btn {
+            padding: 10px 22px;
+            background: var(--gold-gradient);
+            border: none;
+            border-radius: 4px;
+            color: #000;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(212, 163, 89, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: #ffffff;
+            color: var(--primary-blue);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--text-light);
+            transition: 0.4s;
+        }
+
+        /* HERO HEADER */
+        .page-hero {
+            padding: 160px 8% 80px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(10, 30, 63, 0.4) 0%, var(--bg-dark) 100%);
+            border-bottom: 1px solid var(--border-elegant);
+        }
+
+        .page-hero h1 {
+            font-size: 3.2rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .page-hero h1 span {
+            color: var(--primary-gold);
+        }
+
+        .page-hero p {
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: auto;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* SERVICES DETAIL SECTION */
+        .services-detail {
+            padding: 100px 8%;
+            background: var(--bg-dark);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .detail-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-elegant);
+            border-radius: 8px;
+            padding: 40px 30px;
+            transition: 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-blue);
+            border: 1px solid var(--primary-gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 25px;
+        }
+
+        .detail-card h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .detail-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .feature-list li {
+            font-size: 0.85rem;
+            color: #CBD5E1;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list li i {
+            color: var(--primary-gold);
+            font-size: 0.8rem;
+        }
+
+        .card-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--primary-gold);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+        }
+
+        .card-btn:hover {
+            color: #ffffff;
+            padding-left: 5px;
+        }
+
+        /* WORKFLOW SECTION */
+        .workflow {
+            padding: 100px 8%;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-elegant);
+            border-bottom: 1px solid var(--border-elegant);
+        }
+
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step-box {
+            background: var(--primary-blue);
+            padding: 30px 25px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 163, 89, 0.2);
+            position: relative;
+        }
+
+        .step-num {
+            font-size: 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: var(--primary-gold);
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+
+        .step-box h4 {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .step-box p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 8%;
+            text-align: center;
+            background: var(--banner-gradient);
+            border-bottom: 2px solid var(--primary-gold);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .cta p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 600px;
+            margin-bottom: 35px;
+        }
+
+        .primary-btn {
+            padding: 14px 36px;
+            background: var(--gold-gradient);
+            color: #000;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 8px 25px rgba(212, 163, 89, 0.4);
+        }
+
+        .primary-btn:hover {
+            background: #ffffff;
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 80px 8% 40px;
+            background: #03060d;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-gold);
+        }
+
+        .footer-box p, .footer-box a {
+            color: var(--text-muted);
+            text-decoration: none;
+            line-height: 2;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .footer-box a:hover {
+            color: var(--primary-gold);
+        }
+
+        .bottom {
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 25px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 56px;
+            height: 56px;
+            background: #25d366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 1.6rem;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            z-index: 1000;
+            transition: 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-3px);
+        }
+
+        @media(max-width: 1000px) {
+            .hamburger { display: flex; }
+            #nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background: #060913;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 35px;
+                transition: 0.4s ease;
+                border-left: 2px solid var(--primary-gold);
+            }
+            #nav-menu.active { right: 0; }
+        }
+
+        @media(max-width: 600px) {
+            .page-hero h1 { font-size: 2.2rem; }
+            .cta h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" alt="Logo">
+            <h2>MAHASIDDHA <span>web solutions</span></h2>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <a href="contact.html" style="padding: 0;">
+                    <button class="nav-btn">Get Started</button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <h1>Bespoke <span>Web Services</span></h1>
+        <p>Architecting high-converting digital environments, tailored user experiences, and engineered solutions built to scale commercial brands.</p>
+    </section>
+
+    <!-- SERVICES DETAIL GRID -->
+    <section class="services-detail">
+        <div class="section-title">
+            <h2>What We Engineer</h2>
+            <p>Comprehensive web development offerings optimized for modern performance demands.</p>
+        </div>
+
+        <div class="detail-grid">
+            <div class="detail-card">
+                <div>
+                    <div class="card-icon"><i class="fas fa-city"></i></div>
+                    <h3>Corporate Suites</h3>
+                    <p>Multi-page digital architectures tailored for established brands needing high authority, trust, and structural elegance.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Custom UI/UX Layouts</li>
+                        <li><i class="fas fa-check"></i> Multi-Page Architecture</li>
+                        <li><i class="fas fa-check"></i> Lead Generation Funnels</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="card-btn">Inquire Platform <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="detail-card">
+                <div>
+                    <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Conversion Landers</h3>
+                    <p>Single-page, high-impact conversion environments strictly built to capture paid campaign leads and optimize ROI.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> High Conversion Copy Structure</li>
+                        <li><i class="fas fa-check"></i> Ultra Fast Load Velocity</li>
+                        <li><i class="fas fa-check"></i> Direct WhatsApp/Form Integration</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="card-btn">Inquire Platform <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="detail-card">
+                <div>
+                    <div class="card-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <h3>Luxury E-Commerce</h3>
+                    <p>Sophisticated web storefronts designed with fluid catalog exploration and effortless checkout systems.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Interactive Product Galleries</li>
+                        <li><i class="fas fa-check"></i> Secure Checkout Gateways</li>
+                        <li><i class="fas fa-check"></i> Mobile Inventory Display</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="card-btn">Inquire Platform <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="detail-card">
+                <div>
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Performance SEO</h3>
+                    <p>Clean semantic code structures, microdata tuning, and technical speed optimization to secure peak search visibility.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Semantic HTML5 Architecture</li>
+                        <li><i class="fas fa-check"></i> Core Web Vitals Optimization</li>
+                        <li><i class="fas fa-check"></i> Meta & Schema Configurations</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="card-btn">Inquire Platform <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="detail-card">
+                <div>
+                    <div class="card-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Interface Redesigns</h3>
+                    <p>Transforming outdated websites into modern, high-tier responsive web environments that reflect current brand quality.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Modern Gold/Dark Aesthetics</li>
+                        <li><i class="fas fa-check"></i> Full Mobile Responsiveness</li>
+                        <li><i class="fas fa-check"></i> Asset & Image Optimization</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="card-btn">Inquire Platform <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="detail-card">
+                <div>
+                    <div class="card-icon"><i class="fas fa-code"></i></div>
+                    <h3>Custom Web Apps</h3>
+                    <p>Bespoke frontend functionality engineered with vanilla JavaScript, dynamic interfaces, and custom script integrations.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Custom JavaScript Systems</li>
+                        <li><i class="fas fa-check"></i> API & Webhook Connectivity</li>
+                        <li><i class="fas fa-check"></i> Bespoke UI Components</li>
+                    </ul>
+                </div>
+                <a href="contact.html" class="card-btn">Inquire Platform <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORKFLOW PROCESS -->
+    <section class="workflow">
+        <div class="section-title">
+            <h2>Our Development Process</h2>
+            <p>A rigorous 4-step framework guaranteeing technical accuracy and visual distinction.</p>
+        </div>
+
+        <div class="workflow-grid">
+            <div class="step-box">
+                <div class="step-num">01</div>
+                <h4>Discovery & Audit</h4>
+                <p>We analyze your business targets, target audience, and functional specifications to map out the core project brief.</p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-num">02</div>
+                <h4>UI Architecture</h4>
+                <p>Crafting dark-mode visual concepts and responsive user flow wireframes tailored to elevate your brand presence.</p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-num">03</div>
+                <h4>Clean Development</h4>
+                <p>Writing hand-crafted, high-performance HTML, CSS, and JS code optimized for lightning-fast site speed.</p>
+            </div>
+
+            <div class="step-box">
+                <div class="step-num">04</div>
+                <h4>Testing & Launch</h4>
+                <p>Conducting complete cross-device quality checks and speed diagnostics before deploying your web application live.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="cta">
+        <h2>Ready to Build Your Digital Platform?</h2>
+        <p>Connect with our team today to get a customized project quote and execution timeline.</p>
+        <a href="contact.html" class="primary-btn">Start Project Consultation</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-box">
+                <h3>Mahasiddha Web Solutions</h3>
+                <p>Architecting exceptional, high-speed digital products for modern enterprises.</p>
+            </div>
+            <div class="footer-box">
+                <h3>Sitemap</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="services.html">Services</a></p>
+                <p><a href="pricing.html">Pricing</a></p>
+                <p><a href="portfolio.html">Portfolio</a></p>
+            </div>
+            <div class="footer-box">
+                <h3>Inquiries</h3>
+                <p>📞 +91 7073528007</p>
+                <p>📧 customercare@mahasiddhawebsolutions.in</p>
+                <p>📍 Sakhipara, Sambalpur, Odisha</p>
+            </div>
+        </div>
+        <div class="bottom">
+            © 2026 Mahasiddha Web Solutions. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/917073528007" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll("#nav-menu a").forEach(link => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            });
+        });
+    </script>
+</body>
+
+</html>
