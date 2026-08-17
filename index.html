@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahasiddha Web Solutions | Premium Web Design</title>
     
-    <!-- Updated Google Fonts matching the image typography -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..900;1,300..900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -19,7 +18,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Updated Color Palette based on image */
         :root {
             --primary-blue: #0A1E3F;
             --primary-blue-dark: #061126;
@@ -32,7 +30,7 @@
             --text-muted: #A0ABC0;
             --gold-gradient: linear-gradient(135deg, #D4A359 0%, #B88330 100%);
             --blue-gradient: linear-gradient(135deg, #0A1E3F 0%, #061126 100%);
-            --banner-gradient: linear-gradient(90deg, #0A2246 0%, #061024 60%, #C99B4B 100%);
+            --banner-gradient: linear-gradient(110deg, #071936 0%, #040c1b 60%, #b88a3e 100%);
             --border-elegant: rgba(212, 163, 89, 0.15);
         }
 
@@ -49,9 +47,7 @@
             font-weight: 800;
         }
 
-        /* =========================
-        NAVBAR
-        ========================= */
+        /* NAVBAR */
         nav {
             width: 100%;
             padding: 18px 8%;
@@ -159,39 +155,142 @@
             transition: 0.4s;
         }
 
-        .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-        /* =========================
-        CLEAN VISUAL HERO SECTION
-        ========================= */
+        /* HERO SECTION */
         .hero {
             min-height: 100vh;
             width: 100%;
+            padding: 140px 8% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-dark);
             position: relative;
-            background-image: url('images/hero-image.png'); 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: var(--bg-dark);
         }
 
-        .hero-interactive-link {
-            position: absolute;
-            left: 6%;
-            bottom: 30%;
-            width: 155px;
-            height: 48px;
-            cursor: pointer;
+        .hero-banner {
+            width: 100%;
+            max-width: 1200px;
+            background: var(--banner-gradient);
+            border: 2px solid var(--primary-gold);
+            border-radius: 12px;
+            padding: 60px 50px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            line-height: 1.15;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary-gold);
+            display: block;
+        }
+
+        .hero-content p {
+            font-size: 0.95rem;
+            color: #CBD5E1;
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: var(--gold-gradient);
+            color: #000;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             text-decoration: none;
-            background: transparent;
-            z-index: 5;
+            border-radius: 4px;
+            box-shadow: 0 6px 20px rgba(212, 163, 89, 0.4);
+            transition: 0.3s ease;
         }
 
-        /* =========================
-        SERVICES
-        ========================= */
+        .hero-btn:hover {
+            background: #ffffff;
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .hero-graphic {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .code-card {
+            background: rgba(10, 30, 63, 0.85);
+            border: 1px solid var(--primary-gold);
+            border-radius: 8px;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .code-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #FF5F56; }
+        .dot-yellow { background: #FFBD2E; }
+        .dot-green { background: #27C93F; }
+
+        .tech-badges {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+
+        .tech-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: #fff;
+        }
+
+        .badge-html { background: #E44D26; }
+        .badge-css { background: #264DE4; }
+        .badge-js { background: #F7DF1E; color: #000; }
+
+        .code-body {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #A0ABC0;
+            line-height: 1.6;
+        }
+
+        .code-line { display: block; }
+        .code-keyword { color: var(--primary-gold); }
+        .code-string { color: #27C93F; }
+
+        /* SERVICES */
         .services {
             padding: 120px 8%;
             background: var(--bg-card);
@@ -277,9 +376,7 @@
             font-weight: 400;
         }
 
-        /* =========================
-        STATS
-        ========================= */
+        /* STATS */
         .stats {
             padding: 90px 8%;
             display: grid;
@@ -312,9 +409,7 @@
             font-weight: 600;
         }
 
-        /* =========================
-        PORTFOLIO
-        ========================= */
+        /* PORTFOLIO */
         .portfolio {
             padding: 120px 8%;
             background: var(--bg-card);
@@ -471,9 +566,7 @@
             font-weight: 400;
         }
 
-        /* =========================
-        TESTIMONIALS
-        ========================= */
+        /* TESTIMONIALS */
         .testimonials {
             padding: 120px 8%;
             background: var(--bg-dark);
@@ -543,9 +636,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* =========================
-        CTA
-        ========================= */
+        /* CTA */
         .cta {
             padding: 120px 8%;
             text-align: center;
@@ -597,9 +688,7 @@
             box-shadow: 0 12px 30px rgba(255, 255, 255, 0.5);
         }
 
-        /* =========================
-        SOCIAL LINKS
-        ========================= */
+        /* SOCIAL LINKS */
         .social-links {
             display: flex;
             gap: 15px;
@@ -653,9 +742,7 @@
             transform: scale(1.1) translateY(-3px);
         }
 
-        /* =========================
-        SHOWCASE (SWIPER)
-        ========================= */
+        /* SHOWCASE */
         .showcase {
             padding: 120px 8%;
             background: var(--bg-card);
@@ -702,9 +789,7 @@
             background: var(--primary-gold) !important;
         }
 
-        /* =========================
-        FOOTER
-        ========================= */
+        /* FOOTER */
         footer {
             padding: 80px 8% 40px;
             background: #03060d;
@@ -750,12 +835,10 @@
             text-transform: uppercase;
         }
 
-        /* =========================
-        RESPONSIVE
-        ========================= */
         @media(max-width: 1000px) {
-            .hero {
-                background-attachment: scroll;
+            .hero-banner {
+                grid-template-columns: 1fr;
+                padding: 40px 30px;
             }
 
             .hamburger {
@@ -781,15 +864,13 @@
             #nav-menu.active {
                 right: 0;
             }
-            
-            .hero-interactive-link {
-                left: 50%;
-                transform: translateX(-50%);
-                bottom: 15%;
-            }
         }
 
         @media(max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
             .section-title h2 {
                 font-size: 2.2rem;
             }
@@ -807,9 +888,7 @@
 
 <body>
 
-    <!-- =========================
-    NAVBAR
-    ========================= -->
+    <!-- NAVBAR -->
     <nav>
         <div class="logo">
             <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" alt="Logo">
@@ -836,17 +915,39 @@
         </ul>
     </nav>
 
-    <!-- =========================
-    CLEAN GRAPHIC HERO SECTION
-    ========================= -->
+    <!-- HERO SECTION -->
     <section class="hero">
-        <!-- Invisible layer hitting exactly where 'EXPLORE OUR WORK' sits on your artwork -->
-        <a href="portfolio.html" class="hero-interactive-link" title="Explore Our Work"></a>
+        <div class="hero-banner">
+            <div class="hero-content">
+                <h1>Mahasiddha <span>Web Solutions.</span></h1>
+                <p>Crafting Premier Digital Experiences for Global Brands.</p>
+                <a href="contact.html" class="hero-btn">Request a Consultation. Get a Quote.</a>
+            </div>
+            <div class="hero-graphic">
+                <div class="code-card">
+                    <div class="code-header">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <div class="tech-badges">
+                        <span class="tech-badge badge-html">HTML5</span>
+                        <span class="tech-badge badge-css">CSS3</span>
+                        <span class="tech-badge badge-js">JS</span>
+                    </div>
+                    <div class="code-body">
+                        <span class="code-line"><span class="code-keyword">const</span> webApp = <span class="code-keyword">new</span> Solution({</span>
+                        <span class="code-line">&nbsp;&nbsp;performance: <span class="code-string">'100%'</span>,</span>
+                        <span class="code-line">&nbsp;&nbsp;design: <span class="code-string">'Bespoke'</span>,</span>
+                        <span class="code-line">&nbsp;&nbsp;conversion: <span class="code-string">'Optimized'</span></span>
+                        <span class="code-line">});</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- =========================
-    SERVICES
-    ========================= -->
+    <!-- SERVICES -->
     <section class="services">
         <div class="section-title">
             <h2>Bespoke Services</h2>
@@ -877,9 +978,7 @@
         </div>
     </section>
 
-    <!-- =========================
-    STATS
-    ========================= -->
+    <!-- STATS -->
     <section class="stats">
         <div class="stat-box">
             <h2>20+</h2>
@@ -899,9 +998,7 @@
         </div>
     </section>
 
-    <!-- =========================
-    PORTFOLIO
-    ========================= -->
+    <!-- PORTFOLIO -->
     <section class="portfolio">
         <div class="section-title">
             <h2>Selected Works</h2>
@@ -909,7 +1006,6 @@
         </div>
 
         <div class="portfolio-grid">
-            <!-- Website 1: Culinary -->
             <div class="portfolio-card">
                 <div class="browser-mockup">
                     <span class="browser-dot"></span>
@@ -934,7 +1030,6 @@
                 </div>
             </div>
 
-            <!-- Website 2: Fitness -->
             <div class="portfolio-card">
                 <div class="browser-mockup">
                     <span class="browser-dot"></span>
@@ -959,7 +1054,6 @@
                 </div>
             </div>
 
-            <!-- Website 3: Education -->
             <div class="portfolio-card">
                 <div class="browser-mockup">
                     <span class="browser-dot"></span>
@@ -986,9 +1080,7 @@
         </div>
     </section>
 
-    <!-- =========================
-    TESTIMONIALS
-    ========================= -->
+    <!-- TESTIMONIALS -->
     <section class="testimonials">
         <div class="section-title">
             <h2>Client Appraisals</h2>
@@ -1032,9 +1124,7 @@
         </div>
     </section>
 
-    <!-- =========================
-    CTA
-    ========================= -->
+    <!-- CTA -->
     <section class="cta">
         <h2>Let’s Forge Your Digital Legacy</h2>
         <p>Partner with us to create luxurious, highly-optimized web applications designed to engage your high-tier clientele.</p>
@@ -1049,9 +1139,7 @@
         </div>
     </section>
 
-    <!-- =========================
-    WEBSITE SHOWCASE (SWIPER)
-    ========================= -->
+    <!-- SHOWCASE -->
     <section class="showcase">
         <div class="section-title">
             <h2>Interactive Concepts We Deploy</h2>
@@ -1062,7 +1150,7 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="showcase-card">
-                        <img src="restaurant.png" alt="Culinary">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop" alt="Culinary">
                         <div class="showcase-content">
                             <h3>Bespoke Gastronomy</h3>
                             <p>Visual narrative structures paired with advanced booking integrations.</p>
@@ -1101,9 +1189,7 @@
         </div>
     </section>
 
-    <!-- =========================
-    FOOTER
-    ========================= -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
             <div class="footer-box">
@@ -1129,9 +1215,7 @@
         </div>
     </footer>
 
-    <!-- =========================
-    JAVASCRIPT
-    ========================= -->
+    <!-- JAVASCRIPT -->
     <script>
         const hamburger = document.getElementById("hamburger");
         const navMenu = document.getElementById("nav-menu");
